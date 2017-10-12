@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="todoCtrl">
+        <form>
+            Task : <input type="text" ng-model="input">
+            <button ng-click="addTask()">Add</button>
+        </form>
+
+        <ul>
+            <li ng-repeat="todo in todos">
+                <p>task : {{todo.task}}</p>
+                <p>undonestatus: {{todo.notdone}}</p>
+                <div ng-click="removeTask($index)"></div>
+                <p ng-show="todo.notdone"><button ng-click="taskDone($index)">Done</button></p>
+            </li>
+        </ul>
+
+    </body>
+</html>
