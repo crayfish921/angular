@@ -13,10 +13,10 @@
 
         <ul>
             <li ng-repeat="todo in todos">
-                <p>task : {{todo.task}}</p>
-                <p>undonestatus: {{todo.notdone}}</p>
+                <p>{{todo.task}} </p>
+                <p>{{todo.notdone}} </p>
                 <div ng-click="removeTask($index)"></div>
-                <p ng-show="todo.notdone"><button ng-click="taskDone($index)">Done</button></p>
+                <div class="done" ng-show="todo.notdone" ng-click="taskDone($index)"></div>
             </li>
         </ul>
 

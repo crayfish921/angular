@@ -1,9 +1,21 @@
 div {
+    text-align:center;
     height: 24px;
     width: 24px;
     margin: 0;
     border: 1px;
     background-image: url('button.jpg');
+    cursor: pointer;
+    cursor: hand;
+}
+div.done {
+    height: 24px;
+    width: 24px;
+    margin: 0;
+    border: 1px;
+    background-image: url('done.jpg');
+    cursor: pointer;
+    cursor: hand;
 }
 
 p {
@@ -11,10 +23,16 @@ p {
 }
 
 ul {
+    vertical-align: middle;
+    margin: 0 auto;
     padding: 0;
-    display: inline-flex;
     list-style: none;
-    width: auto;
-    float: left;
+    display: inline;
 }
 
+li {
+    margin: 1em 0;
+    vertical-align: middle;
+    list-style: none;
+    display: flex;
+}
