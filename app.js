@@ -1,22 +1,19 @@
-angular.module('todoApp', []);
+var todoApp = angular.module('todoApp', []);
 
-
-/*
-todoApp.controller('todoCtrl', function ($scope) {
-    $scope.todos = [];
-    $scope.addTask = function () {
-        $scope.todos.push({task: $scope.input, notdone: true});
-        $scope.input = '';
+todoApp.controller('todoCtrl', function () {
+    this.todos = [];
+    this.addTask = function () {
+        this.todos.push({task: this.input, done: false});
+        this.input = '';
     }
-    $scope.removeTask = function (index) {
-        console.log(index);
-        $scope.todos.splice(index, 1);
+    this.removeTask = function (index) {
+        this.todos.splice(index, 1);
     }
-    $scope.taskDone = function (index){
-        $scope.todos[index].notdone = false;
+    this.taskDone = function (index){
+        this.todos[index].done = true;
     }
 });
-*/
+
 
 
 
