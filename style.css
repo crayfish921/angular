@@ -14,11 +14,23 @@
     cursor: pointer;
 }
 
+.task {
+    padding-top: 2px;
+}
+
 ul {
     padding: 0;
     list-style: none;
 }
 
+li {
+    overflow: hidden;
+}
+
 li div {
-    display: inline-block;
+    float: left;
+}
+
+.strike {
+    text-decoration: line-through;
 }

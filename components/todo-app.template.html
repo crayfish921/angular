@@ -1,0 +1,11 @@
+<form>
+    Task : <input type="text" ng-model="input">
+    <button ng-click="addTask()">Add</button>
+</form>
+<ul>
+    <li ng-repeat="todo in todos">
+        <div class="task"  ng-cloak data-ng-class="!todo.done && \'null\' || \'strike\'">{{todo.task}}</div>
+        <div class="remove" ng-click="removeTask($index)"></div>
+        <div class="done" ng-show="!todo.done" ng-click="taskDone($index)"></div>
+    </li>
+</ul>
