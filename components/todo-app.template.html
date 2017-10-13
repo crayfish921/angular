@@ -4,7 +4,7 @@
 </form>
 <ul>
     <li ng-repeat="todo in $ctrl.todos">
-        <div class="task" ng-cloak data-ng-class="!todo.done && 'null' || 'strike'">{{todo.task}}</div>
+        <div class="task" ng-class="{strike: todo.done}">{{todo.task}}</div>
         <div class="remove" ng-click="$ctrl.removeTask($index)"></div>
         <div class="done" ng-show="!todo.done" ng-click="$ctrl.taskDone($index)"></div>
     </li>
