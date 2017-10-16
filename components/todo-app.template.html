@@ -1,5 +1,5 @@
 <form>
-    Task : <input type="text" ng-model="$ctrl.input">
+    Task: <input type="text" ng-model="$ctrl.input">
     <button ng-click="$ctrl.addTask()">Add</button>
 </form>
 <ul>
@@ -9,3 +9,35 @@
         <div class="done" ng-show="!todo.done" ng-click="$ctrl.taskDone($index)"></div>
     </li>
 </ul>
+<form>
+    <button ng-click="$ctrl.revealAll()">All</button>
+    <button ng-click="$ctrl.revealDone()">Done</button>
+    <button ng-click="$ctrl.revealArchive()">Archive</button>
+</form>
+<br>
+<div ng-repeat="state in $ctrl.states">
+    <div ng-if = "state.all">
+        All tasks:
+        <ul>
+           <li ng-repeat="todo in $ctrl.todos">
+               <div class="task">{{todo.task}}</div>
+           </li>
+        </ul>
+    </div>
+    <div ng-if = "state.done">
+        Done tasks:
+        <ul>
+            <li ng-repeat="todo in $ctrl.donetasks">
+                <div class="task">{{todo.task}}</div>
+            </li>
+        </ul>
+    </div>
+    <div ng-if = "state.archive">
+        Archive:
+        <ul>
+            <li ng-repeat="todo in $ctrl.archive">
+                <div class="task">{{todo.task}}</div>
+            </li>
+        </ul>
+    </div>
+</div>
