@@ -37,14 +37,14 @@ li div {
 
 .block {}
 
-.block__elem1 {
+.block__all {
     background-color: darkorange;
 }
 
-.block__elem2 {
+.block__done {
     background-color: lime;
 }
 
-.block__elem3 {
+.block__archive {
     background-color:slategrey;
 }

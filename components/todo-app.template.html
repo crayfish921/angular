@@ -16,7 +16,7 @@
 </form>
 <br>
 <div class="block" ng-repeat="state in $ctrl.states">
-    <div class="block__elem1" ng-if = "state.all">
+    <div class="block__all" ng-if = "state.all">
         All tasks:
         <ul>
            <li ng-repeat="todo in $ctrl.todos">
@@ -24,7 +24,7 @@
            </li>
         </ul>
     </div>
-    <div class="block__elem2" ng-if = "state.done">
+    <div class="block__done" ng-if = "state.done">
         Done tasks:
         <ul>
             <li ng-repeat="todo in $ctrl.donetasks">
@@ -32,7 +32,7 @@
             </li>
         </ul>
     </div>
-    <div class="block__elem3" ng-if = "state.archive">
+    <div class="block__archive" ng-if = "state.archive">
         Archive:
         <ul>
             <li ng-repeat="todo in $ctrl.archive">
