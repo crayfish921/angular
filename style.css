@@ -34,3 +34,17 @@ li div {
 .strike {
     text-decoration: line-through;
 }
+
+.block {}
+
+.block__elem1 {
+    background-color: darkorange;
+}
+
+.block__elem2 {
+    background-color: lime;
+}
+
+.block__elem3 {
+    background-color:slategrey;
+}
