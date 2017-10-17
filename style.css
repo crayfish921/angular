@@ -1,12 +1,14 @@
-.remove {
-    height: 24px;
-    width: 24px;
-    margin-left: 5px;
-    background-image: url('images/button.jpg');
-    cursor: pointer;
+.state {
+    padding: 0;
+    list-style: none;
 }
 
-.done {
+.state__all {
+    overflow: hidden;
+}
+
+.state__all--done {
+    float: left;
     height: 24px;
     width: 24px;
     margin-left: 5px;
@@ -14,20 +16,35 @@
     cursor: pointer;
 }
 
-.task {
+.state__all--remove {
+    float: left;
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
+    background-image: url('images/button.jpg');
+    cursor: pointer;
+}
+
+.state__all--task {
     padding-top: 2px;
+    float: left;
 }
 
-ul {
-    padding: 0;
-    list-style: none;
-}
-
-li {
+.state__done {
     overflow: hidden;
 }
 
-li div {
+.state__done--task {
+    padding-top: 2px;
+    float: left;
+}
+
+.state__archive {
+    overflow: hidden;
+}
+
+.state__archive--task {
+    padding-top: 2px;
     float: left;
 }
 
@@ -35,16 +52,10 @@ li div {
     text-decoration: line-through;
 }
 
-.block {}
+.buttons { }
 
-.block__all {
-    background-color: darkorange;
-}
+.buttons__button1 { }
 
-.block__done {
-    background-color: lime;
-}
+.buttons__button2 { }
 
-.block__archive {
-    background-color:slategrey;
-}
+.buttons__button3 { }

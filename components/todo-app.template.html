@@ -1,43 +1,22 @@
-<form>
-    Task: <input type="text" ng-model="$ctrl.input">
-    <button ng-click="$ctrl.addTask()">Add</button>
+<form class="input">
+    Task: <input class="input__field1" type="text" ng-model="$ctrl.input">
+    <button class="input__button1" ng-click="$ctrl.addTask()">Add</button>
 </form>
-<ul>
-    <li ng-repeat="todo in $ctrl.todos">
-        <div class="task" ng-class="{strike: todo.done}">{{todo.task}}</div>
-        <div class="remove" ng-click="$ctrl.removeTask($index)"></div>
-        <div class="done" ng-show="!todo.done" ng-click="$ctrl.taskDone($index)"></div>
+<ul class="state" ng-repeat="state in $ctrl.states">
+    <li ng-if="state.default || state.all" class="state__all" ng-repeat="todo in $ctrl.todos">
+        <div class="state__all--task" ng-class="{strike: todo.done}">{{todo.task}}</div>
+        <div class="state__all--remove" ng-click="$ctrl.removeTask($index)"></div>
+        <div class="state__all--done" ng-show="!todo.done" ng-click="$ctrl.taskDone($index)"></div>
+    </li>
+    <li ng-if="state.done" class="state__done" ng-repeat="todo in $ctrl.donetasks">
+        <div class="state__done--task">{{todo.task}}</div>
+    </li>
+    <li ng-if="state.archive" class="state__archive" ng-repeat="todo in $ctrl.archive">
+        <div class="state__archive--task">{{todo.task}}</div>
     </li>
 </ul>
-<form>
-    <button ng-click="$ctrl.revealAll()">All</button>
-    <button ng-click="$ctrl.revealDone()">Done</button>
-    <button ng-click="$ctrl.revealArchive()">Archive</button>
+<form class="buttons">
+    <button class="buttons__button1" ng-click="$ctrl.revealAll()">All</button>
+    <button class="buttons__button2" ng-click="$ctrl.revealDone()">Done</button>
+    <button class="buttons__button3" ng-click="$ctrl.revealArchive()">Archive</button>
 </form>
-<br>
-<div class="block" ng-repeat="state in $ctrl.states">
-    <div class="block__all" ng-if = "state.all">
-        All tasks:
-        <ul>
-           <li ng-repeat="todo in $ctrl.todos">
-               <div class="task">{{todo.task}}</div>
-           </li>
-        </ul>
-    </div>
-    <div class="block__done" ng-if = "state.done">
-        Done tasks:
-        <ul>
-            <li ng-repeat="todo in $ctrl.donetasks">
-                <div class="task">{{todo.task}}</div>
-            </li>
-        </ul>
-    </div>
-    <div class="block__archive" ng-if = "state.archive">
-        Archive:
-        <ul>
-            <li ng-repeat="todo in $ctrl.archive">
-                <div class="task">{{todo.task}}</div>
-            </li>
-        </ul>
-    </div>
-</div>

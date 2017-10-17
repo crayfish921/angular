@@ -4,27 +4,27 @@ angular.module('todoApp')
         this.todos = [];
         this.archive = [];
         this.donetasks = [];
-        this.states = [];
+        this.states = [{default: true, all: false, done: false, archive: false}];
 
         this.revealAll = function(){
             if (this.states.length > 0){
                 this.states.pop();
             }
-            this.states.push({all: true, done: false, archive: false});
+            this.states.push({default: false, all: true, done: false, archive: false});
         };
 
         this.revealDone = function(){
             if (this.states.length > 0){
                 this.states.pop();
             }
-            this.states.push({all: false, done: true, archive: false});
+            this.states.push({default: false, all: false, done: true, archive: false});
         };
 
         this.revealArchive = function(){
             if (this.states.length > 0){
                 this.states.pop();
             }
-            this.states.push({all: false, done: false, archive: true});
+            this.states.push({default: false, all: false, done: false, archive: true});
         };
 
         this.addTask = function(){
