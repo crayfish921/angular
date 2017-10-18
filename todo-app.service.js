@@ -1,5 +1,5 @@
 angular.module('todoApp')
-    .factory('storageService', ['$rootScope', function($rootScope) {
+    .factory('storageService', function() {
         return {
             get: function(key) {
                 return localStorage.getItem(key);
@@ -8,4 +8,4 @@ angular.module('todoApp')
                 localStorage.setItem(key, data);
             }
         };
-    }]);
+    });

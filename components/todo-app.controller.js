@@ -1,24 +1,21 @@
 angular.module('todoApp')
     .controller('todoCtrl',['storageService', function(storageService) {
 
-        if (!storageService.get('todos')) {
-            this.todos = [];
+        if (storageService.get('tasks')) {
+            tasks = JSON.parse(storageService.get('tasks'));
         }
         else {
-            this.todos = JSON.parse(storageService.get('todos'));
+            var tasks = {
+                active: [],
+                done: [],
+                archived: []
+            }
         }
-        if (!storageService.get('archive')) {
-            this.archive = [];
-        }
-        else {
-            this.archive = JSON.parse(storageService.get('archive'));
-        }
-        if (!storageService.get('donetasks')){
-            this.donetasks = [];
-        }
-        else {
-            this.donetasks = JSON.parse(storageService.get('donetasks'));
-        }
+
+        this.todos = tasks.active;
+        this.donetasks = tasks.done;
+        this.archive = tasks.archived;
+
         this.states = [{default: true, all: false, done: false, archive: false}];
 
         this.revealAll = function(){
@@ -44,21 +41,24 @@ angular.module('todoApp')
 
         this.addTask = function(){
             this.todos.push({task: this.input, done: false});
+            tasks.active = this.todos;
             this.input = '';
-            storageService.set('todos', JSON.stringify(this.todos));
+            storageService.set('tasks', JSON.stringify(tasks));
         };
 
         this.removeTask = function(index){
             this.archive.push(this.todos[index]);
+            tasks.archived = this.archive;
             this.todos.splice(index, 1);
-            storageService.set('archive', JSON.stringify(this.archive));
-            storageService.set('todos', JSON.stringify(this.todos));
+            tasks.active = this.todos;
+            storageService.set('tasks', JSON.stringify(tasks));
         };
 
         this.markAsDone = function(index){
             this.todos[index].done = true;
+            tasks.active = this.todos;
             this.donetasks.push(this.todos[index]);
-            storageService.set('todos', JSON.stringify(this.todos));
-            storageService.set('donetasks', JSON.stringify(this.todos));
+            tasks.done = this.donetasks;
+            storageService.set('tasks', JSON.stringify(tasks));
         };
     }]);
