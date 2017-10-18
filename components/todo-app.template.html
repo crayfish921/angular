@@ -1,6 +1,6 @@
 <form class="taskinput">
-    Task: <input class="taskinput__text" type="text" ng-model="$ctrl.input">
-    <button type="button" class="btn btn-lg btn-success" ng-click="$ctrl.addTask()">Add</button>
+    <input class="taskinput__text" type="text" ng-model="$ctrl.input">
+    <button type="button" class="btn btn-lg btn-success" ng-click="$ctrl.addTask()">Add Task</button>
 </form>
 <ul class="state" ng-repeat="state in $ctrl.states">
     <li ng-if="state.default || state.all" class="state__all" ng-repeat="todo in $ctrl.todos track by $index">
