@@ -1,5 +1,7 @@
-<form class="taskinput">
-    <input class="taskinput__text" type="text" ng-model="$ctrl.input">
+<form class="form-horizontal">
+    <div class="col-xs-4">
+        <input class="form-control" type="text" ng-model="$ctrl.input">
+    </div>
     <button type="button" class="btn btn-lg btn-success" ng-click="$ctrl.addTask()">Add Task</button>
 </form>
 <ul class="state" ng-repeat="state in $ctrl.states">
