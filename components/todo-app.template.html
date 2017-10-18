@@ -1,6 +1,6 @@
 <form class="taskinput">
     Task: <input class="taskinput__text" type="text" ng-model="$ctrl.input">
-    <button class="taskinput__addbutton" ng-click="$ctrl.addTask()">Add</button>
+    <button type="button" class="btn btn-lg btn-success" ng-click="$ctrl.addTask()">Add</button>
 </form>
 <ul class="state" ng-repeat="state in $ctrl.states">
     <li ng-if="state.default || state.all" class="state__all" ng-repeat="todo in $ctrl.todos track by $index">
@@ -16,7 +16,7 @@
     </li>
 </ul>
 <form class="buttons">
-    <button class="buttons__all" ng-click="$ctrl.revealAll()">All</button>
-    <button class="buttons__done" ng-click="$ctrl.revealDone()">Done</button>
-    <button class="buttons__archive" ng-click="$ctrl.revealArchive()">Archive</button>
+    <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.revealAll()">All</button>
+    <button type="button" class="btn btn-lg btn-warning" ng-click="$ctrl.revealDone()">Done</button>
+    <button type="button" class="btn btn-lg btn-danger" ng-click="$ctrl.revealArchive()">Archive</button>
 </form>
