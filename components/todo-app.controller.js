@@ -1,23 +1,23 @@
 angular.module('todoApp')
-    .controller('todoCtrl', function () {
+    .controller('todoCtrl',['storageService', function(storageService) {
 
-        if (!localStorage.getItem('todos')) {
+        if (!storageService.get('todos')) {
             this.todos = [];
         }
         else {
-            this.todos = JSON.parse(localStorage.getItem('todos'));
+            this.todos = JSON.parse(storageService.get('todos'));
         }
-        if (!localStorage.getItem('archive')) {
+        if (!storageService.get('archive')) {
             this.archive = [];
         }
         else {
-            this.archive = JSON.parse(localStorage.getItem('archive'));
+            this.archive = JSON.parse(storageService.get('archive'));
         }
-        if (!localStorage.getItem('donetasks')){
+        if (!storageService.get('donetasks')){
             this.donetasks = [];
         }
         else {
-            this.donetasks = JSON.parse(localStorage.getItem('donetasks'));
+            this.donetasks = JSON.parse(storageService.get('donetasks'));
         }
         this.states = [{default: true, all: false, done: false, archive: false}];
 
@@ -45,20 +45,20 @@ angular.module('todoApp')
         this.addTask = function(){
             this.todos.push({task: this.input, done: false});
             this.input = '';
-            localStorage.setItem('todos', JSON.stringify(this.todos));
+            storageService.set('todos', JSON.stringify(this.todos));
         };
 
         this.removeTask = function(index){
             this.archive.push(this.todos[index]);
             this.todos.splice(index, 1);
-            localStorage.setItem('archive', JSON.stringify(this.archive));
-            localStorage.setItem('todos', JSON.stringify(this.todos));
+            storageService.set('archive', JSON.stringify(this.archive));
+            storageService.set('todos', JSON.stringify(this.todos));
         };
 
         this.markAsDone = function(index){
             this.todos[index].done = true;
             this.donetasks.push(this.todos[index]);
-            localStorage.setItem('todos', JSON.stringify(this.todos));
-            localStorage.setItem('donetasks', JSON.stringify(this.todos));
+            storageService.set('todos', JSON.stringify(this.todos));
+            storageService.set('donetasks', JSON.stringify(this.todos));
         };
-    });
+    }]);
