@@ -4,9 +4,9 @@
 </form>
 <ul class="state" ng-repeat="state in $ctrl.states">
     <li ng-if="state.default || state.all" class="state__all" ng-repeat="todo in $ctrl.todos track by $index">
-        <div class="state__all--task" ng-class="{strike: todo.done}">{{todo.task}}</div>
-        <div class="state__all--remove" ng-click="$ctrl.removeTask($index)"></div>
-        <div class="state__all--done" ng-show="!todo.done" ng-click="$ctrl.markAsDone($index)"></div>
+        <div class="state__all--tasktext" ng-class="{strike: todo.done}">{{todo.task}}</div>
+        <div class="state__all--removebutton" ng-click="$ctrl.removeTask($index)"></div>
+        <div class="state__all--donebutton" ng-show="!todo.done" ng-click="$ctrl.markAsDone($index)"></div>
     </li>
     <li ng-if="state.done" class="state__done" ng-repeat="todo in $ctrl.donetasks track by $index">
         <div class="state__done--task">{{todo.task}}</div>
@@ -15,7 +15,7 @@
         <div class="state__archive--task">{{todo.task}}</div>
     </li>
 </ul>
-<form class="buttons">
+<form class="buttons">s
     <button class="buttons__all" ng-click="$ctrl.revealAll()">All</button>
     <button class="buttons__done" ng-click="$ctrl.revealDone()">Done</button>
     <button class="buttons__archive" ng-click="$ctrl.revealArchive()">Archive</button>

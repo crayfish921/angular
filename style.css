@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 
-.state__all--done {
+.state__all--donebutton {
     float: left;
     height: 24px;
     width: 24px;
@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-.state__all--remove {
+.state__all--removebutton {
     float: left;
     height: 24px;
     width: 24px;
@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 
-.state__all--task {
+.state__all--tasktext {
     padding-top: 2px;
     float: left;
 }
