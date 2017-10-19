@@ -1,24 +1,40 @@
-<form class="form-horizontal">
-    <div class="col-xs-4">
-        <input class="form-control" type="text" ng-model="$ctrl.input">
+<div class="app-container panel panel-default">
+    <div class="panel-heading">
+        <div class="app-title">TO-DO App</div>
     </div>
-    <button type="button" class="btn btn-lg btn-success" ng-click="$ctrl.addTask()">Add Task</button>
-</form>
-<ul class="state" ng-repeat="state in $ctrl.states">
-    <li ng-if="state.default || state.all" class="state__all" ng-repeat="todo in $ctrl.todos track by $index">
-        <div class="state__all--tasktext" ng-class="{strike: todo.done}">{{todo.task}}</div>
-        <div class="state__all--removebutton" ng-click="$ctrl.removeTask($index)"></div>
-        <div class="state__all--donebutton" ng-show="!todo.done" ng-click="$ctrl.markAsDone($index)"></div>
-    </li>
-    <li ng-if="state.done" class="state__done" ng-repeat="todo in $ctrl.donetasks track by $index">
-        <div class="state__done--task">{{todo.task}}</div>
-    </li>
-    <li ng-if="state.archive" class="state__archive" ng-repeat="todo in $ctrl.archive track by $index">
-        <div class="state__archive--task">{{todo.task}}</div>
-    </li>
-</ul>
-<form class="buttons">
-    <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.revealAll()">All</button>
-    <button type="button" class="btn btn-lg btn-warning" ng-click="$ctrl.revealDone()">Done</button>
-    <button type="button" class="btn btn-lg btn-danger" ng-click="$ctrl.revealArchive()">Archive</button>
-</form>
+    <div class="controls-container">
+        <form class="form-inline task-input-form">
+            <input class="form-control task-input" type="text" ng-model="$ctrl.input">
+            <button type="submit" class="btn btn-success task-submit-btn" ng-click="$ctrl.addTask()">Add Task</button>
+        </form>
+       <!-- <ul class="state">
+            <li ng-if="$ctrl.state.default || $ctrl.state.all" class="state__all" ng-repeat="todo in $ctrl.todos track by $index">
+                <div class="state__all&#45;&#45;tasktext" ng-class="{strike: todo.done}">{{todo.task}}</div>
+                <div class="icon-container">
+                    <div class="state__all&#45;&#45;removebutton glyphicon glyphicon-remove" ng-click="$ctrl.removeTask($index)"></div>
+                    <div class="state__all&#45;&#45;donebutton glyphicon glyphicon-ok" ng-show="!todo.done" ng-click="$ctrl.markAsDone($index)"></div>
+                </div>
+            </li>
+            <li ng-if="$ctrl.state.done" class="state__done" ng-repeat="todo in $ctrl.donetasks track by $index">
+                <div class="state__done&#45;&#45;task">{{todo.task}}</div>
+            </li>
+            <li ng-if="$ctrl.state.archive" class="state__archive" ng-repeat="todo in $ctrl.archive track by $index">
+                <div class="state__archive&#45;&#45;task">{{todo.task}}</div>
+            </li>
+        </ul>-->
+        <ul class="task-container">
+            <li ng-repeat="task in $ctrl.tasks track by $index" class="task">
+                <div class="task-text" ng-class="{'task-text__done': task.status == 'done'}">{{task.text}}</div>
+                <div class="task-button-container">
+                    <div class="task-button-delete glyphicon glyphicon-remove" ng-click="$ctrl.removeTask($index)"></div>
+                    <div class="task-button-complete glyphicon glyphicon-ok" ng-show="!todo.done" ng-click="$ctrl.markAsDone($index)"></div>
+                </div>
+            </li>
+        </ul>
+        <div class="buttons">
+            <button type="button" class="btn btn-primary" ng-click="$ctrl.revealAll()">All</button>
+            <button type="button" class="btn btn-warning" ng-click="$ctrl.revealDone()">Done</button>
+            <button type="button" class="btn btn-danger" ng-click="$ctrl.revealArchive()">Archive</button>
+        </div>
+    </div>
+</div>

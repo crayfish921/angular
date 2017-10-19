@@ -1,27 +1,23 @@
 .state {
+    margin-top: 10px;
+    width: 310px;
     padding: 0;
     list-style: none;
 }
 
 .state__all {
     overflow: hidden;
+    border-bottom: 1px solid #cccccc;
+}
+.state__all:last-child {
+    border-bottom: none;
 }
 
 .state__all--donebutton {
-    float: left;
-    height: 19px;
-    width: 25px;
-    margin-left: 5px;
-    background-image: url('icons/glyphicons-207-ok.png');
     cursor: pointer;
 }
 
 .state__all--removebutton {
-    float: left;
-    height: 18px;
-    width: 18px;
-    margin-left: 5px;
-    background-image: url('icons/glyphicons-208-remove.png');
     cursor: pointer;
 }
 
@@ -59,3 +55,65 @@
 .buttons__button2 { }
 
 .buttons__button3 { }
+
+.app-container {
+    width: 410px;
+    margin: 10px auto;
+}
+
+.task-input-form {
+    margin-top: 10px;
+}
+
+.task-input-form .task-input {
+    width: 310px;
+}
+
+.task-submit-btn {
+    float: right;
+}
+
+.icon-container {
+    padding-top: 5px;
+    float: right;
+}
+
+.controls-container {
+    padding: 5px 5px 5px 5px;
+}
+
+.app-title {
+    font-size: 30px;
+}
+
+.task-container {
+    margin-top: 10px;
+    width: 310px;
+    padding: 0;
+    list-style: none;
+}
+
+.task-button-container {
+    padding-top: 5px;
+    float: right;
+}
+
+.task-button-complete {
+    cursor: pointer;
+}
+
+.task-button-delete {
+    cursor: pointer;
+}
+
+.task {
+    overflow: hidden;
+}
+
+.task-text {
+    float: left;
+}
+
+.task-text__done{
+    text-decoration: line-through;
+}
