@@ -1,5 +1,5 @@
 angular.module('todoApp')
-    .controller('todoCtrl',['storageService', function(storageService) {
+    .controller('todoCtrl', ['storageService', function (storageService) {
         var tasksInStorage = storageService.get('tasks');
         var tasks = [];
 
@@ -11,31 +11,31 @@ angular.module('todoApp')
 
         this.state = 'all';
 
-        this.revealAll = function(){
+        this.revealAll = function () {
             this.state = 'all';
         };
 
-        this.revealDone = function(){
+        this.revealDone = function () {
             this.state = 'done';
         };
 
-        this.revealArchive = function() {
-            this.state = 'archive';
+        this.revealArchive = function () {
+            this.state = 'archived';
         };
 
-        this.addTask = function(){
+        this.addTask = function () {
             this.tasks.push({text: this.input, status: 'active'});
             this.input = '';
-            storageService.set('tasks', JSON.stringify(tasks));
+            storageService.set('tasks', JSON.stringify(this.tasks));
         };
 
-        this.removeTask = function(index){
-            this.tasks[index].status = 'archived';
-            storageService.set('tasks', JSON.stringify(tasks));
+        this.removeTask = function (task) {
+            task.status = 'archived';
+            storageService.set('tasks', JSON.stringify(this.tasks));
         };
 
-        this.markAsDone = function(index){
-            this.tasks[index].status = 'done';
-            storageService.set('tasks', JSON.stringify(tasks));
+        this.markAsDone = function (task) {
+            task.status = 'done';
+            storageService.set('tasks', JSON.stringify(this.tasks));
         };
     }]);

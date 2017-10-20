@@ -1,61 +1,3 @@
-.state {
-    margin-top: 10px;
-    width: 310px;
-    padding: 0;
-    list-style: none;
-}
-
-.state__all {
-    overflow: hidden;
-    border-bottom: 1px solid #cccccc;
-}
-.state__all:last-child {
-    border-bottom: none;
-}
-
-.state__all--donebutton {
-    cursor: pointer;
-}
-
-.state__all--removebutton {
-    cursor: pointer;
-}
-
-.state__all--tasktext {
-    padding-top: 2px;
-    float: left;
-}
-
-.state__done {
-    overflow: hidden;
-}
-
-.state__done--task {
-    padding-top: 2px;
-    float: left;
-}
-
-.state__archive {
-    overflow: hidden;
-}
-
-.state__archive--task {
-    padding-top: 2px;
-    float: left;
-}
-
-.strike {
-    text-decoration: line-through;
-}
-
-.buttons { }
-
-.buttons__button1 { }
-
-.buttons__button2 { }
-
-.buttons__button3 { }
-
 .app-container {
     width: 410px;
     margin: 10px auto;
@@ -108,6 +50,11 @@
 
 .task {
     overflow: hidden;
+    border-bottom: 1px solid #cccccc;
+}
+
+.task:last-child{
+    border-bottom: none;
 }
 
 .task-text {
