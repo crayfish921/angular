@@ -8,7 +8,6 @@ angular.module('todoApp')
         }
 
         this.tasks = tasks;
-
         this.state = 'all';
 
         this.revealAll = function () {
@@ -24,18 +23,14 @@ angular.module('todoApp')
         };
 
         this.addTask = function () {
-            this.tasks.push({text: this.input, status: 'active'});
+            this.tasks.push({text: this.input, status: 'active', editable: false});
             this.input = '';
             storageService.set('tasks', JSON.stringify(this.tasks));
         };
 
-        this.removeTask = function (task) {
-            task.status = 'archived';
-            storageService.set('tasks', JSON.stringify(this.tasks));
-        };
-
-        this.markAsDone = function (task) {
-            task.status = 'done';
+        this.editTask = function (task, property, value) {
+            task[property] = value;
+            console.log(task);
             storageService.set('tasks', JSON.stringify(this.tasks));
         };
     }]);

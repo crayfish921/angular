@@ -15,11 +15,6 @@
     float: right;
 }
 
-.icon-container {
-    padding-top: 5px;
-    float: right;
-}
-
 .controls-container {
     padding: 5px 5px 5px 5px;
 }
@@ -37,10 +32,16 @@
 
 .task-button-container {
     padding-top: 5px;
+    padding-left: 5px;
     float: right;
+    width: 20%;
 }
 
 .task-button-complete {
+    cursor: pointer;
+}
+
+.task-button-edit {
     cursor: pointer;
 }
 
@@ -49,18 +50,23 @@
 }
 
 .task {
+    padding-bottom: 5px;
+    padding-top: 5px;
     overflow: hidden;
     border-bottom: 1px solid #cccccc;
 }
 
-.task:last-child{
-    border-bottom: none;
-}
-
 .task-text {
+    width: 80%;
     float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .task-text__done{
     text-decoration: line-through;
+}
+
+todo-task:last-child .task {
+    border-bottom: none;
 }
