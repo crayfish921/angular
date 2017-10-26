@@ -60,7 +60,6 @@
     width: 80%;
     float: left;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .task-text__done{

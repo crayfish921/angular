@@ -8,17 +8,6 @@
             <button type="submit" class="btn btn-primary task-submit-btn" ng-click="$ctrl.addTask()">Add Task</button>
         </form>
         <ul class="task-container">
-           <!-- <li ng-repeat="task in $ctrl.tasks  | taskStatusFilter:$ctrl.state track by $index" class="task">
-                <div class="task-text" ng-if="!task.editable || (task.editable && $ctrl.state !== 'all')" ng-class="{'task-text__done': task.status === 'done' && $ctrl.state ==='all'}">{{task.text}}</div>
-                <div class="task-text" ng-if="task.editable && $ctrl.state === 'all'">
-                    <input class="form-control input-sm task-edit-input" ng-model="task.text" ng-blur="$ctrl.shutDownEdit(task)">
-                </div>
-                <div class="task-button-container" ng-show="$ctrl.state === 'all'">
-                    <div class="task-button-delete glyphicon glyphicon-remove" ng-click="$ctrl.removeTask(task)"></div>
-                    <div class="task-button-complete glyphicon glyphicon-ok" ng-show="task.status !== 'done'" ng-click="$ctrl.markAsDone(task)"></div>
-                    <div class="task-button-edit glyphicon glyphicon-pencil" ng-click="$ctrl.startEdit(task)" ng-show="$ctrl.state === 'all'"></div>
-                </div>
-            </li>-->
             <todo-task ng-repeat="task in $ctrl.tasks track by $index" task="task" container-state="$ctrl.state" on-update="$ctrl.editTask(task, property, value)"></todo-task>
         </ul>
         <div class="buttons">
