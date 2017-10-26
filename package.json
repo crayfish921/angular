@@ -1,0 +1,23 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "best to-do app ",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crayfish921/angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crayfish921/angular/issues"
+  },
+  "homepage": "https://github.com/crayfish921/angular#readme"
+}
