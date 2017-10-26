@@ -30,6 +30,6 @@ angular.module('todoApp')
 
         this.editTask = function (task, property, value) {
             task[property] = value;
-            storageService.set('tasks', JSON.stringify(this.tasks));
+            storageService.set('tasks',JSON.stringify(this.tasks));
         };
     }]);
