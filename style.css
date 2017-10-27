@@ -59,7 +59,10 @@
 .task-text {
     width: 80%;
     float: left;
+    display: block;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .task-text__done{
