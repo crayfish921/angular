@@ -10,10 +10,12 @@ angular.module('todoApp')
         };
         
         this.remove = function () {
+            this.internalTask.status = 'archived';
             this.onUpdate({task: this.task, property: 'status', value: 'archived'});
         };
 
         this.markAsDone = function () {
+            this.internalTask.status = 'done';
             this.onUpdate({task: this.task, property: 'status', value: 'done'});
         };
 
