@@ -1,8 +1,8 @@
-import {TodoTaskController} from 'todo-task.controller'
-import todoTaskTemplate from 'components/todo-task.template.html'
+import {TodoTaskController} from 'todo-task.controller';
+import todoTaskTemplate from 'components/todo-task.template.html';
 import appModule from 'app';
 
-class TodoTaskComponent {
+export class TodoTaskComponent {
     constructor() {
         this.template = todoTaskTemplate();
         this.controller = TodoTaskController;
@@ -13,5 +13,3 @@ class TodoTaskComponent {
         }
     }
 }
-
-appModule.component('todoTask', new TodoTaskComponent());

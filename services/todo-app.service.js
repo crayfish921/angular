@@ -1,6 +1,6 @@
 import appModule from 'app';
 
-class TodoAppService {
+export default class TodoAppService {
     get(key) {
         return localStorage.getItem(key);
     };
@@ -9,5 +9,3 @@ class TodoAppService {
         return localStorage.setItem(key, data)
     };
 }
-
-appModule.factory('storageService', TodoAppService);

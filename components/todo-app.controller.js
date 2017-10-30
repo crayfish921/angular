@@ -1,4 +1,5 @@
 export class TodoAppController {
+    /*@ngInject*/
     constructor(storageService){
         this.storageService = storageService;
 
@@ -16,6 +17,7 @@ export class TodoAppController {
     revealAll() {
         this.state = 'all';
     };
+
 
     revealDone() {
        this.state = 'done';
