@@ -3,7 +3,7 @@ import todoAppTemplate from 'components/todo-app.template.html';
 import appModule from 'app';
 
 export class TodoAppComponent {
-    constructor(){
+    constructor() {
         this.controller = TodoAppController;
         this.template = todoAppTemplate();
     }
