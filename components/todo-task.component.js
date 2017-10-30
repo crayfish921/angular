@@ -1,6 +1,5 @@
 import {TodoTaskController} from 'todo-task.controller';
 import todoTaskTemplate from 'components/todo-task.template.html';
-import appModule from 'app';
 
 export class TodoTaskComponent {
     constructor() {
