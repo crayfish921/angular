@@ -1,7 +1,9 @@
-angular.module('todoApp')
-    .controller('todoCtrl', ['storageService', function (storageService) {
-        var tasksInStorage = storageService.get('tasks');
-        var tasks = [];
+export class TodoAppController {
+    constructor(storageService){
+        this.storageService = storageService;
+
+        let tasksInStorage = this.storageService.get('tasks');
+        let tasks = [];
 
         if (tasksInStorage !== null) {
             tasks = JSON.parse(tasksInStorage);
@@ -9,27 +11,28 @@ angular.module('todoApp')
 
         this.tasks = tasks;
         this.state = 'all';
+    }
 
-        this.revealAll = function () {
-            this.state = 'all';
-        };
+    revealAll() {
+        this.state = 'all';
+    };
 
-        this.revealDone = function () {
-            this.state = 'done';
-        };
+    revealDone() {
+       this.state = 'done';
+    };
 
-        this.revealArchive = function () {
-            this.state = 'archived';
-        };
+    revealArchive() {
+        this.state = 'archived';
+    };
 
-        this.addTask = function () {
-            this.tasks.push({text: this.input, status: 'active', editable: false});
-            this.input = '';
-            storageService.set('tasks', JSON.stringify(this.tasks));
-        };
+    addTask() {
+        this.tasks.push({text: this.input, status: 'active', editable: false});
+        this.input = '';
+        this.storageService.set('tasks', JSON.stringify(this.tasks));
+    };
 
-        this.editTask = function (task, property, value) {
-            task[property] = value;
-            storageService.set('tasks', JSON.stringify(this.tasks));
-        };
-    }]);
+    editTask(task, property, value) {
+        task[property] = value;
+        this.storageService.set('tasks', JSON.stringify(this.tasks));
+    };
+}

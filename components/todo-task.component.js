@@ -1,10 +1,17 @@
-angular.module('todoApp')
-    .component('todoTask', {
-        templateUrl: 'components/todo-task.template.html',
-        bindings: {
+import {TodoTaskController} from 'todo-task.controller'
+import todoTaskTemplate from 'components/todo-task.template.html'
+import appModule from 'app';
+
+class TodoTaskComponent {
+    constructor() {
+        this.template = todoTaskTemplate();
+        this.controller = TodoTaskController;
+        this.bindings = {
             task: '<',
             containerState: '<',
             onUpdate: '&'
-        },
-        controller: 'todoTaskCtrl'
-});
+        }
+    }
+}
+
+appModule.component('todoTask', new TodoTaskComponent());

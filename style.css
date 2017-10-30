@@ -31,7 +31,7 @@
 }
 
 .task-button-container {
-    padding-top: 5px;
+    padding-top: 2px;
     padding-left: 5px;
     float: right;
     width: 20%;
@@ -59,7 +59,6 @@
 .task-text {
     width: 80%;
     float: left;
-    display: block;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

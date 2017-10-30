@@ -1,29 +1,27 @@
-angular.module('todoApp')
-    .controller('todoTaskCtrl', function () {
+export class TodoTaskController {
+    $onInit() {
+        this.internalTask = angular.copy(this.task)
+    }
 
-        this.$onInit = function (){
-            this.internalTask = angular.copy(this.task);
-        };
-        
-        this.editText = function () {
-            this.onUpdate({task: this.task, property: 'text', value: this.internalTask.text});
-        };
-        
-        this.remove = function () {
-            this.internalTask.status = 'archived';
-            this.onUpdate({task: this.task, property: 'status', value: 'archived'});
-        };
+    editText() {
+        this.onUpdate({task: this.task, property: 'text', value: this.internalTask.text});
+    }
 
-        this.markAsDone = function () {
-            this.internalTask.status = 'done';
-            this.onUpdate({task: this.task, property: 'status', value: 'done'});
-        };
+    remove() {
+        this.internalTask.status = 'archived';
+        this.onUpdate({task: this.task, property: 'status', value: 'archived'});
+    }
 
-        this.startEdit = function () {
-            this.editMode = true;
-        };
+    markAsDone() {
+        this.internalTask.status = 'done';
+        this.onUpdate({task: this.task, property: 'status', value: 'done'});
+    }
 
-        this.shutDownEdit = function () {
-            this.editMode = false;
-        };
-    });
+    startEdit() {
+        this.editMode = true;
+    }
+
+    shutDownEdit() {
+        this.editMode = false;
+    }
+}

@@ -1,1 +1,2 @@
-angular.module('todoApp', []);
+const appModule = angular.module('todoApp', []);
+export default appModule;
