@@ -18,7 +18,6 @@ export class TodoAppController {
         this.state = 'all';
     };
 
-
     revealDone() {
        this.state = 'done';
     };
@@ -35,6 +34,7 @@ export class TodoAppController {
 
     editTask(task, property, value) {
         task[property] = value;
+        console.log(task);
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
 }

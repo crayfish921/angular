@@ -5,7 +5,7 @@
     </div>
     <div class="task-button-container" ng-show="$ctrl.containerState === 'all'">
         <div class="task-button-delete glyphicon glyphicon-remove" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.remove()"></div>
-        <div class="task-button-complete glyphicon glyphicon-ok" ng-show="$ctrl.internalTask.status !== 'done'" ng-model="$ctrl.internalTask.status" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.markAsDone()"></div>
+        <div class="task-button-complete glyphicon glyphicon-ok" ng-show="$ctrl.internalTask.status !== 'done'" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.markAsDone()"></div>
         <div class="task-button-edit glyphicon glyphicon-pencil" ng-click="$ctrl.startEdit()" ng-show="$ctrl.containerState === 'all'"></div>
     </div>
 </li>
