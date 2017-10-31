@@ -1,6 +1,13 @@
 export class TodoTaskController {
+
     $onInit() {
         this.internalTask = angular.copy(this.task)
+    }
+
+    $doCheck() {
+        if (!angular.equals(this.internalTask, this.task)) {
+            this.internalTask = angular.copy(this.task);
+        }
     }
 
     editText() {
