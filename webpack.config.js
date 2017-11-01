@@ -17,6 +17,9 @@ module.exports = {
             {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'}
         ]
     },
+    devServer: {
+        contentBase: './dist'
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html'
