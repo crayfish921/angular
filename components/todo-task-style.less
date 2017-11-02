@@ -1,38 +1,36 @@
-@t-button: task-button;
-
-.@{t-button}-container {
-  padding-top: 2px;
-  padding-left: 5px;
-  float: right;
-  width: 20%;
-  .@{t-button}-complete {
-    cursor: pointer;
-  }
-  .@{t-button}-edit {
-    cursor: pointer;
-  }
-  .@{t-button}-delete {
-    cursor: pointer;
-  }
-}
-
 .task {
   padding-bottom: 5px;
   padding-top: 5px;
   overflow: hidden;
   border-bottom: 1px solid #cccccc;
-  .task-text {
+  &-text {
     width: 80%;
     float: left;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
-  .task-text__done {
+  &-text__done {
     text-decoration: line-through;
   }
+  &-button {
+    &-container {
+      padding-top: 2px;
+      padding-left: 5px;
+      float: right;
+      width: 20%;
+    }
+    &-complete {
+      cursor: pointer;
+    }
+    &-edit {
+      cursor: pointer;
+    }
+    &-delete {
+      cursor: pointer;
+    }
+  }
 }
-
 todo-task {
   &:last-child {
     .task {
