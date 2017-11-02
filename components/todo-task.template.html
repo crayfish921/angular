@@ -1,11 +1,12 @@
 <li class="task">
     <div title="{{$ctrl.internalTask.text}}" class="task-text" ng-if="!$ctrl.editMode || ($ctrl.editMode && $ctrl.containerState !== 'all')"  ng-class="{'task-text__done': $ctrl.internalTask.status === 'done' && $ctrl.containerState ==='all'}">{{$ctrl.internalTask.text}}</div>
     <div class="task-text" ng-if="$ctrl.editMode && $ctrl.containerState === 'all'">
-        <input class="form-control input-sm task-edit-input" ng-model="$ctrl.internalTask.text" ng-model-options="{debounce: 500}" ng-blur="$ctrl.shutDownEdit()" ng-change="$ctrl.editText()">
+        <input class="form-control input-sm task-edit-input" ng-model="$ctrl.internalTask.text" ng-model-options="{debounce: 500}" ng-keypress="$ctrl.submit($event)" ng-blur="$ctrl.shutDownEdit()" ng-change="$ctrl.editText()">
     </div>
     <div class="task-button-container" ng-show="$ctrl.containerState === 'all'">
-        <div class="task-button-delete glyphicon glyphicon-remove" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.remove()"></div>
-        <div class="task-button-complete glyphicon glyphicon-ok" ng-show="$ctrl.internalTask.status !== 'done'" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.markAsDone()"></div>
-        <div class="task-button-edit glyphicon glyphicon-pencil" ng-click="$ctrl.startEdit()" ng-show="$ctrl.containerState === 'all'"></div>
+        <div class="task-button-delete glyphicon glyphicon-remove" ng-show="!$ctrl.editMode" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.remove()"></div>
+        <div class="task-button-complete glyphicon glyphicon-ok" ng-show="$ctrl.internalTask.status !== 'done'" ng-if="!$ctrl.editMode" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.markAsDone()"></div>
+        <div class="task-button-edit glyphicon glyphicon-pencil" ng-click="$ctrl.startEdit()" ng-show="$ctrl.containerState === 'all'" ng-if="!$ctrl.editMode"></div>
+        <div class="task-button-save glyphicon glyphicon-file" ng-click="$ctrl.clickSave()" ng-show="$ctrl.editMode"></div>
     </div>
 </li>

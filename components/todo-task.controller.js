@@ -31,4 +31,13 @@ export class TodoTaskController {
     shutDownEdit() {
         this.editMode = false;
     }
+
+    submit(keyEvent) {
+        if (keyEvent.which === 13)
+            this.editMode = false;
+    }
+
+    clickSave(){
+        this.editMode = false;
+    }
 }
