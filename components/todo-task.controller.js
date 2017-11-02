@@ -34,11 +34,6 @@ export class TodoTaskController {
     }
 
     shutDownEdit() {
-        if (this.cancelFlag) {
-            this.internalTask.text = this.initialText;
-            this.cancelFlag = false;
-            this.editText();
-        }
         this.editMode = false;
     }
 
@@ -48,6 +43,7 @@ export class TodoTaskController {
     }
 
     cancelEdit() {
-        this.cancelFlag = true;
+
+       this.editMode = false;
     }
 }

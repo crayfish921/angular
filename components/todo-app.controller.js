@@ -36,4 +36,5 @@ export class TodoAppController {
         task[property] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
+
 }
