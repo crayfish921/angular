@@ -1,0 +1,38 @@
+.task-button-container {
+  padding-top: 2px;
+  padding-left: 5px;
+  float: right;
+  width: 20%;
+}
+.task-button-complete {
+  cursor: pointer;
+}
+.task-button-edit {
+  cursor: pointer;
+}
+.task-button-delete {
+  cursor: pointer;
+}
+.task {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  overflow: hidden;
+  border-bottom: 1px solid #cccccc;
+}
+.task-text {
+  width: 80%;
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.task-text__done {
+  text-decoration: line-through;
+}
+todo-task {
+  &:last-child {
+    .task {
+      border-bottom: none;
+    }
+  }
+}
