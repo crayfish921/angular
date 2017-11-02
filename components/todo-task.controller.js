@@ -1,5 +1,9 @@
 export class TodoTaskController {
 
+    constructor(){
+        this.enterCode = 13;
+    }
+
     $onInit() {
         this.internalTask = angular.copy(this.task)
     }
@@ -25,15 +29,25 @@ export class TodoTaskController {
     }
 
     startEdit() {
+        this.initialText = this.internalTask.text;
         this.editMode = true;
     }
 
     shutDownEdit() {
+        if (this.cancelFlag) {
+            this.internalTask.text = this.initialText;
+            this.cancelFlag = false;
+            this.editText();
+        }
         this.editMode = false;
     }
 
     submit(keyEvent) {
-        if (keyEvent.which === 13)
+        if (keyEvent.which === this.enterCode)
             this.editMode = false;
+    }
+
+    cancelEdit() {
+        this.cancelFlag = true;
     }
 }
