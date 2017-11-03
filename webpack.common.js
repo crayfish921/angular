@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './index.js',
@@ -14,10 +15,17 @@ module.exports = {
             {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
             {test: /\.css$/, use: ['style-loader', 'css-loader']},
             {test: /\.(ttf|eot|svg|woff|woff(2)?)$/, use: 'file-loader?name=fonts/[name].[ext]'},
-            {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'}
+            {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'},
+            {test: /\.css$/, use: ExtractTextPlugin.extract("style-loader", "css-loader")},
+            {test: /\.less$/, use: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")}
         ]
     },
     plugins: [
+        new ExtractTextPlugin('[name].css', {
+            allChunks: true,
+            publicPath: '/dist'
+        }),
+
         new HtmlWebpackPlugin({
             template: './index.html',
             title: 'Production'
