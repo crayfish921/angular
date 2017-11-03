@@ -18,6 +18,11 @@ export class TodoTaskController {
         this.onUpdate({task: this.task, property: 'text', value: this.internalTask.text});
     }
 
+    cancelEdit() {
+        this.onCancel({task: this.task, value: this.initialText});
+        this.editMode = false;
+    }
+
     remove() {
         this.internalTask.status = 'archived';
         this.onUpdate({task: this.task, property: 'status', value: 'archived'});
@@ -29,7 +34,7 @@ export class TodoTaskController {
     }
 
     startEdit() {
-        this.initialText = this.internalTask.text;
+        this.initialText = angular.copy(this.internalTask.text);
         this.editMode = true;
     }
 
@@ -40,10 +45,5 @@ export class TodoTaskController {
     submit(keyEvent) {
         if (keyEvent.which === this.enterCode)
             this.editMode = false;
-    }
-
-    cancelEdit() {
-
-       this.editMode = false;
     }
 }

@@ -9,7 +9,8 @@ export class TodoTaskComponent {
         this.bindings = {
             task: '<',
             containerState: '<',
-            onUpdate: '&'
+            onUpdate: '&',
+            onCancel: '&'
         }
     }
 }

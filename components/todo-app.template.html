@@ -8,7 +8,7 @@
             <button type="submit" class="btn btn-primary task-submit-btn" ng-click="$ctrl.addTask()">Add Task</button>
         </form>
         <ul class="task-container">
-            <todo-task ng-repeat="task in $ctrl.tasks | taskStatusFilter:$ctrl.state track by $index" task="task" container-state="$ctrl.state" on-update="$ctrl.editTask(task, property, value)"></todo-task>
+            <todo-task ng-repeat="task in $ctrl.tasks | taskStatusFilter:$ctrl.state track by $index" task="task" container-state="$ctrl.state" on-cancel="$ctrl.cancelEditing(task, value)" on-update="$ctrl.editTask(task, property, value)"></todo-task>
         </ul>
         <div class="buttons">
             <button type="button" class="btn btn-default" ng-click="$ctrl.revealAll()">All</button>
