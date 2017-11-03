@@ -16,10 +16,9 @@ module.exports = {
             {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'},
             {test: /\.less$/, use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'less-loader'
+                    use: ['css-loader', 'less-loader']
                 })
             },
-
             {test: /\.css$/, use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: 'css-loader'
