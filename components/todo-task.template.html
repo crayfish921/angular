@@ -3,7 +3,7 @@
     <div class="task-text" ng-if="$ctrl.editMode && $ctrl.containerState === 'all'">
         <input class="form-control input-sm task-edit-input" ng-model="$ctrl.internalTask.text" ng-model-options="{debounce: 500}" ng-keypress="$ctrl.submit($event)" ng-change="$ctrl.editText()">
     </div>
-    <div class="task-button-container" ng-show="$ctrl.containerState === 'all'">
+    <div class="task-button-container" ng-show="$ctrl.containerState === 'all'" ng-class="{'task-button-container__onEdit': $ctrl.editMode}">
         <div class="task-button-delete glyphicon glyphicon-remove" ng-show="!$ctrl.editMode" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.remove()"></div>
         <div class="task-button-complete glyphicon glyphicon-ok" ng-show="$ctrl.internalTask.status !== 'done' && !$ctrl.editMode" ng-model="$ctrl.internalTask.status" ng-click="$ctrl.markAsDone()"></div>
         <div class="task-button-edit glyphicon glyphicon-pencil" ng-click="$ctrl.startEdit()" ng-show="$ctrl.containerState === 'all' && !$ctrl.editMode"></div>
