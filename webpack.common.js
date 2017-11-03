@@ -12,20 +12,23 @@ module.exports = {
         rules: [
             {test: /\.js$/, use: ['ng-annotate-loader', 'babel-loader'], exclude: /node_modules/},
             {test: /\.html$/, use: 'html-loader'},
-            {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
-            {test: /\.css$/, use: ['style-loader', 'css-loader']},
             {test: /\.(ttf|eot|svg|woff|woff(2)?)$/, use: 'file-loader?name=fonts/[name].[ext]'},
             {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'},
-            {test: /\.css$/, use: ExtractTextPlugin.extract("style-loader", "css-loader")},
-            {test: /\.less$/, use: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")}
+            {test: /\.less$/, use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'less-loader'
+                })
+            },
+
+            {test: /\.css$/, use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader'
+                })
+            }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('[name].css', {
-            allChunks: true,
-            publicPath: '/dist'
-        }),
-
+        new ExtractTextPlugin("styles.css"),
         new HtmlWebpackPlugin({
             template: './index.html',
             title: 'Production'
