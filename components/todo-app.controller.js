@@ -1,45 +1,45 @@
-export class TodoAppController {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var TodoAppController = (function () {
     /*@ngInject*/
-    constructor(storageService){
+    function TodoAppController(storageService) {
         this.storageService = storageService;
-
-        let tasksInStorage = this.storageService.get('tasks');
-        let tasks = [];
-
+        var tasksInStorage = this.storageService.get('tasks');
+        var tasks = [];
         if (tasksInStorage !== null) {
             tasks = JSON.parse(tasksInStorage);
         }
-
         this.tasks = tasks;
         this.state = 'all';
     }
-
-    revealAll() {
+    TodoAppController.prototype.revealAll = function () {
         this.state = 'all';
     };
-
-    revealDone() {
-       this.state = 'done';
+    ;
+    TodoAppController.prototype.revealDone = function () {
+        this.state = 'done';
     };
-
-    revealArchive() {
+    ;
+    TodoAppController.prototype.revealArchive = function () {
         this.state = 'archived';
     };
-
-    addTask() {
-        this.tasks.push({text: this.input, status: 'active', editable: false});
+    ;
+    TodoAppController.prototype.addTask = function () {
+        var task = {};
+        this.tasks.push({ text: this.input, status: 'active', editable: false });
         this.input = '';
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
-
-    editTask(task, property, value) {
+    ;
+    TodoAppController.prototype.editTask = function (task, property, value) {
         task[property] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
-
-    cancelEditing(task, value) {
+    ;
+    TodoAppController.prototype.cancelEditing = function (task, value) {
         task['text'] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
-    }
-
-}
+    };
+    return TodoAppController;
+}());
+exports.TodoAppController = TodoAppController;
