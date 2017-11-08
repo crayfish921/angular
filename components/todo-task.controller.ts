@@ -1,7 +1,16 @@
+declare var angular: any;
 export class TodoTaskController {
 
+    public code: number;
+    public internalTask: any;
+    public task: Object;
+    public onUpdate: any;
+    public onCancel: any;
+    public editMode: boolean;
+    public initialText: string;
+
     constructor(){
-        this.enterCode = 13;
+        this.code = 13;
     }
 
     $onInit() {
@@ -43,7 +52,7 @@ export class TodoTaskController {
     }
 
     submit(keyEvent) {
-        if (keyEvent.which === this.enterCode)
+        if (keyEvent.which === this.code)
             this.editMode = false;
     }
 }

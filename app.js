@@ -1,3 +1,5 @@
-import * as angular from 'angular';
-const appModule = angular.module('todoApp', []);
-export default appModule;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var angular = require("angular");
+var appModule = angular.module('todoApp', []);
+exports.default = appModule;

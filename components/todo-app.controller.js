@@ -25,8 +25,8 @@ var TodoAppController = (function () {
     };
     ;
     TodoAppController.prototype.addTask = function () {
-        var task = {};
-        this.tasks.push({ text: this.input, status: 'active', editable: false });
+        var task = { text: this.input, status: 'active', editable: false };
+        this.tasks.push(task);
         this.input = '';
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };

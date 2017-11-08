@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var TodoTaskController = (function () {
     function TodoTaskController() {
-        this.enterCode = 13;
+        this.code = 13;
     }
     TodoTaskController.prototype.$onInit = function () {
         this.internalTask = angular.copy(this.task);
@@ -35,7 +35,7 @@ var TodoTaskController = (function () {
         this.editMode = false;
     };
     TodoTaskController.prototype.submit = function (keyEvent) {
-        if (keyEvent.which === this.enterCode)
+        if (keyEvent.which === this.code)
             this.editMode = false;
     };
     return TodoTaskController;
