@@ -41,7 +41,7 @@ export class TodoAppController {
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
 
-    editTask(task, property, value) {
+    editTask(task: Object, property: string, values: any) {
         task[property] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
