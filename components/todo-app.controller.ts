@@ -46,7 +46,7 @@ export class TodoAppController {
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
 
-    cancelEditing(task, value) {
+    cancelEditing(task: Object, value: any) {
         task['text'] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     }
