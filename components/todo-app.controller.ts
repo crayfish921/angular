@@ -1,5 +1,5 @@
 import TodoAppService from "../services/todo-app.service";
-import {taskIntefrace} from "./todo-app.model";
+import {taskInterface} from "./todo-app.model";
 
 export class TodoAppController {
 
@@ -35,7 +35,7 @@ export class TodoAppController {
     };
 
     addTask() {
-        let task: taskIntefrace = {text: this.input, status: 'active', editable: false};
+        let task: taskInterface = {text: this.input, status: 'active', editable: false};
         this.tasks.push(task);
         this.input = '';
         this.storageService.set('tasks', JSON.stringify(this.tasks));

@@ -1,4 +1,4 @@
-export interface taskIntefrace {
+export interface taskInterface {
     text: string;
     status: string;
     editable: boolean
