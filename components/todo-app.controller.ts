@@ -1,7 +1,7 @@
 import TodoAppService from "../services/todo-app.service";
 import {Task} from "./todo-app.model";
 
-export class TodoAppController {
+export class TodoAppController implements ng.IComponentController {
     tasks: Task[];
     state: string;
     input: string;

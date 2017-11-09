@@ -1,19 +1,15 @@
 import {Task} from "./todo-app.model";
+import * as angular from 'angular';
 
-declare var angular: any;
-export class TodoTaskController {
-
+export class TodoTaskController implements ng.IComponentController {
     editMode: boolean;
     internalTask: Task;
-    private onCancel: Function;
-    private onUpdate: Function;
+    private onCancel: (param: {task: Task, value: string}) => void;
+    private onUpdate: (param: {task: Task, property: string, value: string}) => void;
     private initialText: string;
     private task: Task;
-    private code: number;
+    private enterCode = 13;
 
-    constructor(){
-        this.code = 13;
-    }
 
     $onInit() {
         this.internalTask = angular.copy(this.task);
@@ -53,8 +49,8 @@ export class TodoTaskController {
         this.editMode = false;
     }
 
-    submit(keyEvent) {
-        if (keyEvent.which === this.code)
+    submit(keyEvent: JQueryKeyEventObject) {
+        if (keyEvent.which === this.enterCode)
             this.editMode = false;
     }
 }
