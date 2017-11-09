@@ -4,8 +4,8 @@ import './todo-task-style.less';
 
 export class TodoTaskComponent {
     public bindings: Object;
-    public template: todoTaskTemplate;
-    public controller: TodoTaskController;
+    public template: any;
+    public controller: any;
     constructor() {
         this.template = todoTaskTemplate;
         this.controller = TodoTaskController;

@@ -2,7 +2,7 @@ declare var angular: any;
 export class TodoTaskController {
 
     public code: number;
-    public internalTask: Object;
+    public internalTask: any;
     public task: Object;
     public onUpdate: any;
     public onCancel: any;
