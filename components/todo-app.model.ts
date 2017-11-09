@@ -1,5 +1,5 @@
-export interface taskInterface {
+export type Task = {
     text: string;
     status: string;
     editable: boolean
-}
+};

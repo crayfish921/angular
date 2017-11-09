@@ -1,16 +1,13 @@
 import TodoAppService from "../services/todo-app.service";
-import {taskInterface} from "./todo-app.model";
+import {Task} from "./todo-app.model";
 
 export class TodoAppController {
-
-    private storageService: TodoAppService;
-    public tasks: Object[];
-    public state: string;
-    public input: string;
+    tasks: Task[];
+    state: string;
+    input: string;
 
     /*@ngInject*/
-    constructor(storageService){
-        this.storageService = storageService;
+    constructor(private storageService: TodoAppService){
         let tasksInStorage = this.storageService.get('tasks');
         let tasks = [];
 
@@ -35,18 +32,18 @@ export class TodoAppController {
     };
 
     addTask() {
-        let task: taskInterface = {text: this.input, status: 'active', editable: false};
+        let task: Task = {text: this.input, status: 'active', editable: false};
         this.tasks.push(task);
         this.input = '';
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
 
-    editTask(task: Object, property: string, value: any) {
+    editTask(task: Task, property: string, value: string) {
         task[property] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     };
 
-    cancelEditing(task: Object, value: any) {
+    cancelEditing(task: Task, value: string) {
         task['text'] = value;
         this.storageService.set('tasks', JSON.stringify(this.tasks));
     }

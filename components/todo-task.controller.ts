@@ -1,20 +1,22 @@
+import {Task} from "./todo-app.model";
+
 declare var angular: any;
 export class TodoTaskController {
 
-    public code: number;
-    public internalTask: any;
-    public task: Object;
-    public onUpdate: any;
-    public onCancel: any;
-    public editMode: boolean;
-    public initialText: string;
+    editMode: boolean;
+    internalTask: Task;
+    private onCancel: Function;
+    private onUpdate: Function;
+    private initialText: string;
+    private task: Task;
+    private code: number;
 
     constructor(){
         this.code = 13;
     }
 
     $onInit() {
-        this.internalTask = angular.copy(this.task)
+        this.internalTask = angular.copy(this.task);
     }
 
     $doCheck() {
