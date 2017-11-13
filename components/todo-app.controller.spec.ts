@@ -1,9 +1,7 @@
-import {} from 'jasmine';
+describe('TodoAppController', () => {
 
-describe('TodoAppController', function() {
-
-    describe('Return true', function () {
-        it('should return true', function () {
+    describe('Returns true', () => {
+        it('should return true',  () => {
             const Truth = true;
             expect(Truth).toBe(true);
         })

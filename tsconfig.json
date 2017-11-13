@@ -1,19 +1,9 @@
 {
   "compilerOptions": {
-    "types" : [
-      "node"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "declaration": false,
     "noEmitOnError": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "target": "es5",
-    "allowJs": true
-  },
-  "include": [
-    "./src/**/*"
-  ]
+    "target": "es5"
+  }
 }

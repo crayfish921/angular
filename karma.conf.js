@@ -4,20 +4,22 @@ module.exports = function (config) {
     config.set({
         basePath: '',
         frameworks: ['jasmine'],
-        files: ['components/todo-app.controller.spec.ts'],
+        files: [
+            {pattern: './**/*.spec.ts'}
+        ],
         preprocessors: {
-            'components/todo-app.controller.spec.ts': ['webpack'],
+            './**/*.spec.ts': ['webpack'],
         },
+        exclude: [
+            'node_modules'
+        ],
         webpack: testsConfig,
-        mime: {
-            'text/x-typescript': ['ts']
-        },
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: ['Chrome'],
-        singleRun: false,
+        browsers: ['PhantomJS'],
+        singleRun: true,
         concurrency: Infinity
     })
 };
