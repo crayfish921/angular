@@ -8,5 +8,4 @@ describe('TodoAppController', function() {
             expect(Truth).toBe(true);
         })
     })
-
 });
