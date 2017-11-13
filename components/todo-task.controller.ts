@@ -10,7 +10,6 @@ export class TodoTaskController implements ng.IComponentController {
     private task: Task;
     private enterCode = 13;
 
-
     $onInit() {
         this.internalTask = angular.copy(this.task);
     }
