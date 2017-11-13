@@ -1,14 +1,17 @@
 let testsConfig = require('./webpack.dev.js');
 
+testsConfig.entry = './webpack.tests.js';
+testsConfig.plugins = [];
+
 module.exports = function (config) {
     config.set({
         basePath: '',
         frameworks: ['jasmine'],
         files: [
-            {pattern: './**/*.spec.ts'}
+            './webpack.tests.js'
         ],
         preprocessors: {
-            './**/*.spec.ts': ['webpack'],
+            'webpack.tests.js': ['webpack'],
         },
         exclude: [
             'node_modules'
