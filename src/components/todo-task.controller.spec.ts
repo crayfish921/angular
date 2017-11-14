@@ -1,9 +1,16 @@
+import {TodoTaskController} from "./todo-task.controller";
+import {Task} from "./todo-app.model";
+
 describe('TodoTaskController', () => {
 
-    describe('Returns false', () => {
-        it('should return false',  () => {
-            const Lies = false;
-            expect(Lies).toBe(false);
+    describe('remove', () => {
+        it('Should call onUpdate,', () => {
+            let controller = new TodoTaskController();
+            controller.onUpdate = () => {};
+            controller.internalTask  = <Task>{};
+            spyOn(controller, 'onUpdate');
+            controller.remove();
+            expect(controller.onUpdate).toHaveBeenCalled();
         })
     })
 });

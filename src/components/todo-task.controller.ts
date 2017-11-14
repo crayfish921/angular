@@ -4,8 +4,8 @@ import * as angular from 'angular';
 export class TodoTaskController implements ng.IComponentController {
     editMode: boolean;
     internalTask: Task;
-    private onCancel: (param: {task: Task, value: string}) => void;
-    private onUpdate: (param: {task: Task, property: string, value: string}) => void;
+    onUpdate: (param: {task: Task, property: string, value: string}) => void;
+    onCancel: (param: {task: Task, value: string}) => void;
     private initialText: string;
     private task: Task;
     private enterCode = 13;
