@@ -3,22 +3,34 @@ import 'angular-mocks';
 
 describe('TodoAppService', () => {
     describe('set', () => {
-        let storageService1;
+        let storageService;
         beforeEach(angular.mock.module('todoApp'));
-        /*beforeEach(inject(function(storageService){
-            storageService1 = storageService;
-            console.log(storageService);
-        }));*/
 
         beforeEach(inject([
-            'storageService', function(service) {
-                storageService1 = service;
+            'storageService', (service) => {
+                storageService = service;
             }
         ]));
 
         it('Should set item to local storage', () => {
-            storageService1.set('test_key', 1);
+            storageService.set('test_key', 1);
             expect(localStorage.getItem('test_key')).toBe('1');
-        })
-    })
+        });
+    });
+
+    describe('get', () =>{
+        let storageService;
+        beforeEach(angular.mock.module('todoApp'));
+
+        beforeEach(inject([
+            'storageService', (service) => {
+                storageService = service;
+            }
+        ]));
+
+        it('Should get an item from local storage', () => {
+            localStorage.setItem('car', 'audi')
+            expect(storageService.get('car')).toBe('audi');
+        });
+    });
 });
