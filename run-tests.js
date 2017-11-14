@@ -6,5 +6,3 @@ new KarmaServer({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
 }).start();
-
-console.log();
