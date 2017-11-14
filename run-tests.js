@@ -7,3 +7,4 @@ new KarmaServer({
     singleRun: true
 }).start();
 
+console.log();
