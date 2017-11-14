@@ -1,6 +1,6 @@
-let testsConfig = require('./webpack.dev.js');
+let testsConfig = require('./webpack/webpack.dev.js');
 
-testsConfig.entry = './webpack.tests.js';
+testsConfig.entry = './webpack/webpack.tests.js';
 testsConfig.plugins = [];
 
 module.exports = function (config) {
@@ -8,10 +8,10 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['jasmine'],
         files: [
-            './webpack.tests.js'
+            './webpack/webpack.tests.js'
         ],
         preprocessors: {
-            'webpack.tests.js': ['webpack'],
+            'webpack/webpack.tests.js': ['webpack'],
         },
         exclude: [
             'node_modules'

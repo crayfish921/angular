@@ -4,9 +4,9 @@
   "description": "best to-do app ",
   "main": "app.js",
   "scripts": {
-    "build-dev": "del-cli dist && webpack --config webpack.dev.js",
-    "build": "del-cli dist && webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build-dev": "del-cli dist && webpack --config webpack/webpack.dev.js",
+    "build": "del-cli dist && webpack --config webpack/webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack/webpack.dev.js",
     "test": "node run-tests.js"
   },
   "dependencies": {
