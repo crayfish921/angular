@@ -1,5 +1,3 @@
-// declare function require(path: string): any;
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -18,18 +16,10 @@ module.exports = {
             {test: /\.ts$/, use: 'awesome-typescript-loader' },
             {test: /\.js$/, use: ['ng-annotate-loader', 'babel-loader'], exclude: /node_modules/},
             {test: /\.html$/, use: 'html-loader'},
-            {test: /\.(ttf|eot|svg|woff|woff(2)?)$/, use: 'file-loader?name=fonts/[name].[ext]'},
-            {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'},
-            {test: /\.less$/, use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'less-loader']
-                })
-            },
-            {test: /\.css$/, use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                })
-            }
+            {test: /\.(ttf|eot|svg|woff|woff(2)?)$/, use: 'file-loader?name=fonts/[name].[ext]'},
+            {test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader'},
+            {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
+            {test: /\.css$/, use: ['style-loader', 'css-loader']}
         ]
     },
     plugins: [
